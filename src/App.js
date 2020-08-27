@@ -99,6 +99,7 @@ class App extends React.Component{
         this.connection.invoke("SendMessage","maxime","Est devenue"+this.state.status)
     }
     handleUnlock(lock){
+        console.log("Youhouu")
         if(lock)
             this.setState({Locked:true})
         else
