@@ -1,0 +1,224 @@
+body{
+    background-color: whitesmoke;
+    margin-bottom:66px;
+}
+
+#bottomnavbar{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #343a40;
+    bottom: 0;
+    position: fixed;
+    left:0;
+    z-index: 1030;
+    width: 100%;
+    right: 0;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+#bottomnavbar button{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    text-align:center;
+}
+
+#Home{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    text-align: center;
+}
+
+#Home a{
+    margin-bottom: 5px;
+    margin-top:5px
+}
+a:link {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
+  
+  a:active {
+    text-decoration: none;
+    color: black;
+  }
+  .clock, .weather {
+    display:inline-block;
+    font-size:38px;
+    color:#fff;
+    font-weight:300;
+    font-family:'Open Sans Condensed';
+    opacity:0.9;
+  }
+  .clock {
+    position:relative;
+    top:3px;
+  }
+
+.LockScreen{
+	margin: 0;
+	padding: 0;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	//background: linear-gradient(#b5b5b5, #9daba1), radial-gradient(rgba(255,255,255,.15),rgba(255,255,255,0.5));
+  background-blend-mode: overlay;
+  background-color:rgba(255,255,255,.25);
+  background-image:url( http://api.thumbr.it/whitenoise-361x370.png?background=acbdc4ff&noise=626262&density=7&opacity=10);
+}
+.weather {
+  //right:15px;
+  font-size:28px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255,255,255,0.5);
+  margin-left: 11px;
+  .lnr {font-size:24px;padding-top:4px}
+}
+
+.unlock-slider {
+  position:absolute;
+  bottom:60px;
+  z-index:50;
+  width: 60%;
+}
+
+input[type=range].lockscreen {
+  width: 100%;
+  margin: -7.2px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+}
+input[type=range].lockscreen:focus {
+  outline: none;
+}
+input[type=range].lockscreen::-webkit-slider-runnable-track {
+  background: rgba(51, 54, 56, 0.1);
+  border: 2.1px solid rgba(1, 1, 1, 0.2);
+  border-radius: 24.9px;
+  width: 100%;
+  height: 38.4px;
+  cursor: pointer;
+}
+input[type=range].lockscreen::-webkit-slider-thumb {
+  margin-top: 5.1px;
+  width: 24px;
+  height: 24px;
+  background: #000000;
+  border: 1.9px solid rgba(0, 0, 0, 0.57);
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+input[type=range].lockscreen:focus::-webkit-slider-runnable-track {
+  background: #b2b6b8;
+}
+input[type=range].lockscreen::-moz-range-track {
+  background: rgba(51, 54, 56, 0.1);
+  border: 2.1px solid rgba(1, 1, 1, 0.2);
+  border-radius: 24.9px;
+  width: 100%;
+  height: 38.4px;
+  cursor: pointer;
+}
+input[type=range].lockscreen::-moz-range-thumb {
+  width: 24px;
+  height: 24px;
+  background: #000000;
+  border: 1.9px solid rgba(0, 0, 0, 0.57);
+  border-radius: 50px;
+  cursor: pointer;
+}
+input[type=range].lockscreen::-ms-track {
+  background: transparent;
+  border-color: transparent;
+  border-width: 0 0;
+  color: transparent;
+  width: 100%;
+  height: 38.4px;
+  cursor: pointer;
+}
+input[type=range].lockscreen::-ms-fill-lower {
+  background: #000000;
+  border: 2.1px solid rgba(1, 1, 1, 0.2);
+  border-radius: 49.8px;
+}
+input[type=range].lockscreen::-ms-fill-upper {
+  background: rgba(51, 54, 56, 0.1);
+  border: 2.1px solid rgba(1, 1, 1, 0.2);
+  border-radius: 49.8px;
+}
+input[type=range].lockscreen::-ms-thumb {
+  width: 24px;
+  height: 24px;
+  background: #000000;
+  border: 1.9px solid rgba(0, 0, 0, 0.57);
+  border-radius: 50px;
+  cursor: pointer;
+  margin-top: 0px;
+  /*Needed to keep the Edge thumb centred*/
+}
+input[type=range].lockscreen:focus::-ms-fill-lower {
+  background: rgba(51, 54, 56, 0.1);
+}
+input[type=range].lockscreen:focus::-ms-fill-upper {
+  background: #b2b6b8;
+}
+/*TODO: Use one of the selectors from https://stackoverflow.com/a/20541859/7077589 and figure out
+how to remove the virtical space around the range input in IE*/
+@supports (-ms-ime-align:auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type=range].lockscreen {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}
+
+.CreaForm{
+  padding-top: 3%;
+}
+
+.FormCreaForm{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  text-align: center;
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.FormH1{
+  text-align: center;
+}
+.FormSelect{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin: auto;
+  margin-top: 5px;
+  
+}
+
+.FormButton{
+  display: block;
+  margin:auto;
+  margin-top:5Px;
+}
+
+.FormStat,.FormText{
+  margin: 5px;
+}
