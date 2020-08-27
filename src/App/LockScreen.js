@@ -39,7 +39,6 @@ constructor(props){
     this.onChange=this.onChange.bind(this)
 }
 onChange(event) {
-  console.log("Youhouu")
   this.setState({unlockValue: event.target.value});
   if(event.target.value==="100")
         this.props.Unlock()
