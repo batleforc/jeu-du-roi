@@ -17,6 +17,6 @@ COPY . .
 
 EXPOSE ${PORT}
 
-RUN npm run prod
+RUN npm run build
 
 CMD ["node","Api/index.js"]
