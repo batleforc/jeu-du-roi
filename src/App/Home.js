@@ -15,12 +15,13 @@ class Home extends React.Component{
                 {this.props.turn>=5 &&<AppIcon icon={["fas","dice-d20"]} text="Gacha Luck" link="/gacha" color="black"  />}
                 <AppIcon icon={["fas","cogs"]} text="Parametre" link="/param" />
                 <AppIcon icon={["fas","book"]} text="Régle" link="/rules"  color=""/>
-                {this.props.debug&&<AppIcon icon={["fas","arrow-up"]} text="TurnUp" link="/"  color="" onClick={this.props.handleUP}/>}
-                {this.props.debug&& <AppIcon icon={["fas","arrow-down"]} text="TurnDown" link="/"  color="" onClick={this.props.handleDOWN} />}
-                {this.props.debug&&<AppIcon icon={["fas","random"]} text="Switch King/Student" link="/"  color="" onClick={this.props.handleSwitch} />}
-                {this.props.debug&&<AppIcon icon={["fas","journal-whills"]} text={"Tour : "+this.props.turn} link="/"  color="" />}
-                {this.props.debug&&  <AppIcon icon={["fas","journal-whills"]} text={"Status : "+this.props.status} link="/"  color="" />}
-                {this.props.debug&&<AppIcon icon={["fas","lock"]} text="Lock the screen" link="/" color="" onClick={this.props.Lock}/>}
+                {this.props.debug&&<AppIcon icon={["fas","arrow-up"]} text="TurnUp" link="/"  color="red" onClick={this.props.handleUP}/>}
+                {this.props.debug&& <AppIcon icon={["fas","arrow-down"]} text="TurnDown" link="/"  color="red" onClick={this.props.handleDOWN} />}
+                {this.props.debug&&<AppIcon icon={["fas","random"]} text="Switch King/Student" link="/"  color="red" onClick={this.props.handleSwitch} />}
+                {this.props.debug&&<AppIcon icon={["fas","journal-whills"]} text={"Tour : "+this.props.turn} link="/"  color="red" />}
+                {this.props.debug&&  <AppIcon icon={["fas","journal-whills"]} text={"Status : "+this.props.status} link="/"  color="red" />}
+                {this.props.debug&&<AppIcon icon={["fas","lock"]} text="Lock the screen" link="/" color="red" onClick={this.props.Lock}/>}
+                {this.props.debug&&<AppIcon icon={["fas","lock"]} text="Red = Debug" link="/" color="red" />}
             </div>
         )
     }

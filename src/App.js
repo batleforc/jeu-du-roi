@@ -96,14 +96,11 @@ class App extends React.Component{
     }
     handleswitchkingstudent(){
         this.setState({status:this.state.status==="king"?"student":"king"})
-        this.connection.invoke("SendMessage","maxime","Est devenue"+this.state.status)
+        //this.connection.invoke("SendMessage","maxime","Est devenue"+this.state.status)
     }
     handleUnlock(lock){
-        console.log("Youhouu")
-        if(lock)
-            this.setState({Locked:true})
-        else
-        this.setState({Locked:false})
+        if(lock) this.setState({Locked:true})
+        else this.setState({Locked:false})
     }
     handledebugwaiting(){
         this.setState({PartieStarted:true})
