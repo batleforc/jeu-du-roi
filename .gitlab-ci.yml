@@ -45,10 +45,10 @@ Lint: #Permet de noter le code
         - eslint ./src/
 Curl: #Déclenche le webhook discord qui dis que le launch est finis
     stage: hook
-    image: docker:latest
+    image: docker:git
     allow_failure: true
     script:
-        - apt install curl git
+        - apt-get install curl git
         - export PROJECT_URL="$CI_PROJECT_URL"
         - export USER_START="$GITLAB_USER_LOGIN	"
         - sh ./deploy.sh
