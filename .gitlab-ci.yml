@@ -2,6 +2,8 @@ variables:
     LATEST_VER : batlefroc/akau:latest
     CURRENT_VER: batlefroc/akau:1.1
     CONTAINER_NAME: akau
+include:
+  - template: Code-Quality.gitlab-ci.yml
 
 stages:
     - lint
@@ -9,6 +11,7 @@ stages:
     - StopOld
     - run
     - hook
+    - test
 
 StopOld: #Permet de stoper un container qui fonctionne déja
   image: docker:latest
