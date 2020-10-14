@@ -18,27 +18,33 @@ stages:
     - test
 
 StopOld: #Permet de stoper un container qui fonctionne déja
-  image: docker:latest
-  stage: StopOld
-  allow_failure: true
-  script:
-    - docker container stop $CONTAINER_NAME
-    - docker container rm $CONTAINER_NAME
+    image: docker:latest
+    stage: StopOld
+    allow_failure: true
+    tags: 
+        - kimsufi
+    script:
+        - docker container stop $CONTAINER_NAME
+        - docker container rm $CONTAINER_NAME
 Build: #Permet de l'image Dockerfile
     image: docker:latest
     services:
-    - docker:dind
+        - docker:dind
     before_script:
-    - docker info
+        - docker info
+    tags: 
+        - kimsufi
     stage: build
     script:
         - docker build -t $LATEST_VER -t $CURRENT_VER .
 Run: #Permet de Start le container
     image: docker:latest
     services:
-    - docker:dind
+        - docker:dind
     before_script:
-    - docker info
+        - docker info
+    tags: 
+        - kimsufi
     stage: run
     script : 
         - docker run -d --network weebo --name $CONTAINER_NAME -p 8081:8080 $LATEST_VER
@@ -46,6 +52,8 @@ Lint: #Permet de noter le code
     stage: lint
     image: node:latest
     allow_failure: true
+    tags: 
+        - kimsufi
     script:
         - npm install -g eslint eslint-config-airbnb eslint-config-prettier eslint-plugin-flowtype eslint-plugin-import eslint-plugin-jsx-a11y  eslint-plugin-prettier eslint-plugin-react
         - npm install
@@ -54,6 +62,8 @@ Curl: #Déclenche le webhook discord qui dis que le launch est finis
     stage: hook
     image: docker:git
     allow_failure: true
+    tags: 
+        - kimsufi
     script:
         - apk update
         - apk add git
