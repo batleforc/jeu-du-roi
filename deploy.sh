@@ -8,7 +8,8 @@ echo $USER_START
 echo $messagefinal
 curl -X POST \
     -H "Content-Type: application/json" \
-    -d "{
+    -H "Accept: application/json" \
+    --data "{
         \"embeds\":[
         {
             \"title\":\"Update du site de linterface du projet\",
