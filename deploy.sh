@@ -6,4 +6,5 @@ request="{\"embeds\":[{\"title\":\"Update du site de linterface du projet\",\"co
 echo $request
 curl -X POST \
     -H "Content-Type: application/json" \
-    -d $request $WEBHOOK_URL
+    -d $request \
+    $WEBHOOK_URL
