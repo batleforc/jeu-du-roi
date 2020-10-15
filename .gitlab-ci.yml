@@ -71,7 +71,6 @@ Curl: #Déclenche le webhook discord qui dis que le launch est finis
         - kimsufi
     needs:
         - Run
-        - code_quality
     script:
         - apk update
         - apk add git
