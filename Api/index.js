@@ -12,7 +12,7 @@ const port = process.env.PORT || 5000;
 
 var test;
 app.use(function(req, res, next) {
-    console.log("Yop un gens c'est co avec l'ip "+(req.headers['x-forwarded-for'] || req.connection.remoteAddress));
+    console.log("Yop un gens c'est co avec lip "+(req.headers['x-forwarded-for'] || req.connection.remoteAddress));
     res.header("Access-Control-Allow-Origin", "*"); // update to match the domain you will make the request from
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
