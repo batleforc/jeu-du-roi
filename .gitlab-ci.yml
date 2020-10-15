@@ -6,6 +6,7 @@ include:
   - template: Code-Quality.gitlab-ci.yml
 
 code_quality:
+    stage: test
     artifacts:
         paths: [gl-code-quality-report.json]
 
@@ -23,6 +24,8 @@ StopOld: #Permet de stoper un container qui fonctionne déja
     allow_failure: true
     tags: 
         - kimsufi
+    needs:
+        - Build
     script:
         - docker container stop $CONTAINER_NAME
         - docker container rm $CONTAINER_NAME
@@ -46,6 +49,8 @@ Run: #Permet de Start le container
     tags: 
         - kimsufi
     stage: run
+    needs:
+        - Build
     script : 
         - docker run -d --network weebo --name $CONTAINER_NAME -p 8081:8080 $LATEST_VER
 Lint: #Permet de noter le code
@@ -64,10 +69,13 @@ Curl: #Déclenche le webhook discord qui dis que le launch est finis
     allow_failure: true
     tags: 
         - kimsufi
+    needs:
+        - Run
+        - code_quality
     script:
         - apk update
         - apk add git
         - apk add curl
-        - export PROJECT_URL="$CI_PROJECT_URL"
+        - export PROJECT_URL="$CI_PIPELINE_URL"
         - export USER_START="$GITLAB_USER_LOGIN	"
         - sh ./deploy.sh
