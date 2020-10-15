@@ -73,7 +73,6 @@ Curl: #Déclenche le webhook discord qui dis que le launch est finis
         - Run
     script:
         - apk update
-        - apk add git
         - apk add curl
         - export PROJECT_URL="$CI_PIPELINE_URL"
         - export USER_START="$GITLAB_USER_LOGIN	"
