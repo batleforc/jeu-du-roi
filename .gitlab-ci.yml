@@ -82,16 +82,16 @@ Curl: #Déclenche le webhook discord qui dis que le launch est finis
         - ./deploy.sh
 CURLV2:
     stage: hook
-    image: docker:git
+    image: ubuntu
     allow_failure: true
     tags:
         - kimsufi
     needs:
         - Run
     script:
-        - apk update
-        - apk add curl
-        - apk add wget
+        - apt update
+        - apt install curl -y
+        - apt install wget -y
         - wget https://raw.githubusercontent.com/DiscordHooks/gitlab-ci-discord-webhook/master/send.sh
         - chmod +x send.sh
         - ./send.sh success $WEBHOOK_URL
