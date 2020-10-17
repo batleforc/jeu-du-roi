@@ -2,6 +2,7 @@ variables:
     LATEST_VER : batlefroc/akau:latest
     CURRENT_VER: batlefroc/akau:1.1
     CONTAINER_NAME: akau
+    WEBHOOK_URL: "https://discordapp.com/api/webhooks/735175356054765618/MdOM3hDJPPEi1HBnCDJWhPQNK78-dOShV_mbu2dR4PfQfUZd_m0T3AMff670UMgqKCr4"
 
 include:
   - template: Code-Quality.gitlab-ci.yml
@@ -79,3 +80,18 @@ Curl: #Déclenche le webhook discord qui dis que le launch est finis
         - export USER_START="$GITLAB_USER_LOGIN	"
         - chmod +x ./deploy.sh
         - ./deploy.sh
+CURLV2:
+    stage: hook
+    image: docker:git
+    allow_failure: true
+    tags:
+        - kimsufi
+    needs:
+        - Run
+    script:
+        - apk update
+        - apk add curl
+        - apk add wget
+        - wget https://raw.githubusercontent.com/DiscordHooks/gitlab-ci-discord-webhook/master/send.sh
+        - chmod +x send.sh
+        - ./send.sh success $WEBHOOK_URL
