@@ -2,6 +2,7 @@ variables:
     LATEST_VER : batlefroc/akau:latest
     CURRENT_VER: batlefroc/akau:1.1
     CONTAINER_NAME: akau
+
 include:
   - template: Code-Quality.gitlab-ci.yml
 
@@ -76,4 +77,5 @@ Curl: #Déclenche le webhook discord qui dis que le launch est finis
         - apk add curl
         - export PROJECT_URL="$CI_PIPELINE_URL"
         - export USER_START="$GITLAB_USER_LOGIN	"
-        - sh ./deploy.sh
+        - chmod +X ./deploy.sh
+        - ./deploy.sh
