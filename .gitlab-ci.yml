@@ -2,10 +2,11 @@ variables:
     LATEST_VER : batlefroc/akau:latest
     CURRENT_VER: batlefroc/akau:1.1
     CONTAINER_NAME: akau
+    CONTAINER_NAME_DEBUG: akaudebug
     WEBHOOK_URL: "https://discordapp.com/api/webhooks/735175356054765618/MdOM3hDJPPEi1HBnCDJWhPQNK78-dOShV_mbu2dR4PfQfUZd_m0T3AMff670UMgqKCr4"
 
 include:
-  - template: Code-Quality.gitlab-ci.yml
+    - template: Code-Quality.gitlab-ci.yml
 
 code_quality:
     stage: test
